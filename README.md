@@ -1,6 +1,8 @@
 # TripTour
 
 A Thailand travel tour website with a light-blue theme. Browse tours by region, view full tour details, and complete a booking — all from a static front-end backed by a PHP/MySQL login system.
+I deploy on GitHub Pages: [Visit my website](https://ninenights195.github.io/simple-tour-website/).  
+_Note: The login feature requires a PHP backend and database, so it is not functional on GitHub Pages. All other features work as expected._
 
 ---
 
