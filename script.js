@@ -98,6 +98,17 @@ function starsHTML(rating) {
   return "★".repeat(full) + (half ? "½" : "") + "☆".repeat(empty);
 }
 
+function getTourEndDate(startDateStr, durationText) {
+  if (!startDateStr || !durationText) return null;
+  const startDate = new Date(startDateStr + "T00:00:00");
+  const totalDays = parseInt(durationText, 10);
+  if (Number.isNaN(startDate.getTime()) || Number.isNaN(totalDays) || totalDays < 1) return null;
+
+  const endDate = new Date(startDate);
+  endDate.setDate(endDate.getDate() + totalDays - 1);
+  return endDate;
+}
+
 function buildCard(tour) {
   const card = document.createElement("article");
   card.className = "tour-card";
