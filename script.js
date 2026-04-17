@@ -1,142 +1,95 @@
 /* ============================================================
    TripTour – Tour Data & Interactive Logic
    ============================================================ */
-
+   
 const TOURS = [
-  {
-    id: 1,
-    title: "Paris — City of Light",
-    location: "Paris, France",
-    category: "Culture",
-    duration: "7 Days",
-    groupSize: "Max 12",
-    rating: 4.9,
-    reviews: 312,
-    price: 1299,
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80",
-    description: "Stroll along the Seine, marvel at the Eiffel Tower at night, and indulge in world-class French cuisine. This guided week in Paris blends iconic landmarks with hidden local gems.",
-    fullDescription: "Experience the romance and elegance of Paris on this carefully crafted 7-day journey. From the moment you arrive at Charles de Gaulle, our expert guides will escort you through centuries of art, architecture, and gastronomy. Visit the Louvre, climb Montmartre, cruise the Seine at sunset, and discover the charming cafés of Le Marais. Evenings are yours to explore the vibrant Parisian nightlife, with optional dinners at Michelin-starred restaurants.",
-    highlights: [
-      "Skip-the-line access to the Louvre and Musée d'Orsay",
-      "Private evening visit to the Eiffel Tower",
-      "Seine River sunset cruise",
-      "Cooking class with a local chef in Montmartre",
-      "Day trip to Versailles Palace & Gardens",
-      "All transfers included from CDG airport"
-    ]
-  },
-  {
-    id: 2,
-    title: "Tokyo — Neon & Tradition",
-    location: "Tokyo, Japan",
-    category: "Adventure",
-    duration: "10 Days",
-    groupSize: "Max 10",
-    rating: 4.8,
-    reviews: 198,
-    price: 2499,
-    image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80",
-    description: "From serene temples in Kyoto to the buzzing streets of Shibuya, explore Japan's dazzling contrast of ancient culture and futuristic technology.",
-    fullDescription: "This 10-day immersion takes you deep into the soul of Japan. Begin in Tokyo — explore Shibuya Crossing, Akihabara's tech scene, and the tranquil Meiji Shrine. Journey by Shinkansen to Kyoto to walk the bamboo groves of Arashiyama and meditate in Zen gardens. Join a traditional tea ceremony, try on a kimono, and feast on authentic ramen, sushi, and wagyu beef. A day trip to Mount Fuji rounds out an unforgettable cultural adventure.",
-    highlights: [
-      "Shinkansen bullet train experience",
-      "Traditional tea ceremony in Kyoto",
-      "Tsukiji Outer Market food tour",
-      "Arashiyama bamboo grove morning walk",
-      "Day trip to Mount Fuji (5th station)",
-      "Kimono dressing experience"
-    ]
-  },
-  {
-    id: 3,
-    title: "Bali — Island of Gods",
-    location: "Bali, Indonesia",
-    category: "Beach",
-    duration: "8 Days",
-    groupSize: "Max 14",
-    rating: 4.7,
-    reviews: 245,
-    price: 999,
-    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80",
-    description: "Unwind in tropical paradise — rice terraces, ancient temples, surf-perfect beaches, and vibrant nightlife make Bali a once-in-a-lifetime destination.",
-    fullDescription: "Eight sun-drenched days on the Island of Gods await. Begin in Ubud, the cultural heart of Bali — visit the Sacred Monkey Forest, watch a traditional Kecak fire dance, and cycle through lush rice paddies at dawn. Move south to the cliffs of Uluwatu for world-class surf and dramatic sunsets. Finish at the white-sand beaches of Seminyak with beach-club days and spa evenings. Throughout, you'll taste Balinese cuisine at local warungs and shop the vibrant art markets.",
-    highlights: [
-      "Sunrise trekking on Mount Batur volcano",
-      "White-water rafting on the Ayung River",
-      "Traditional Kecak fire dance at Uluwatu Temple",
-      "Rice terrace cycling tour in Tegallalang",
-      "Balinese cooking class",
-      "2 nights luxury villa stay in Seminyak"
-    ]
-  },
-  {
-    id: 4,
-    title: "New York — The Big Apple",
-    location: "New York City, USA",
-    category: "City",
-    duration: "5 Days",
-    groupSize: "Max 16",
-    rating: 4.6,
-    reviews: 421,
-    price: 1499,
-    image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80",
-    description: "Hit the iconic skyline, world-famous museums, Broadway shows, and the best street food on the planet — New York City never sleeps and neither will you.",
-    fullDescription: "Five exhilarating days in the city that defines modern culture. See the Statue of Liberty up close, walk across the Brooklyn Bridge, and gaze at Manhattan from the Top of the Rock. Explore the Metropolitan Museum of Art and take in a Broadway show in the Theatre District. Our curated food tour covers everything from Katz's Deli pastrami to Harlem's legendary soul food. Expert local guides lead each excursion, ensuring you experience NYC like a true New Yorker.",
-    highlights: [
-      "Statue of Liberty & Ellis Island ferry",
-      "Top of the Rock 360° observation deck",
-      "Broadway show tickets (Book of Mormon or Hamilton)",
-      "Guided Brooklyn food and street art tour",
-      "Central Park bike ride with local guide",
-      "Metropolitan Museum of Art guided visit"
-    ]
-  },
-  {
-    id: 5,
-    title: "Kenya Safari — Wild Wonders",
-    location: "Maasai Mara, Kenya",
-    category: "Wildlife",
-    duration: "6 Days",
-    groupSize: "Max 8",
-    rating: 5.0,
-    reviews: 134,
-    price: 3299,
-    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80",
-    description: "Witness the spectacular Great Migration and get up close with lions, elephants, and leopards in one of Africa's most breathtaking wildlife reserves.",
-    fullDescription: "A six-day luxury safari in the iconic Maasai Mara delivers a once-in-a-lifetime encounter with Africa's Big Five. Fly in by light aircraft from Nairobi, then settle into your boutique tented camp at the edge of the savanna. Twice-daily game drives in open 4x4 vehicles with expert Maasai naturalist guides put you within metres of lions, cheetahs, elephants, and rhinos. Witness the Great Wildebeest Migration (seasonal), enjoy sundowner cocktails on the plains, and visit a traditional Maasai village to learn about their ancient way of life.",
-    highlights: [
-      "Big Five game drives morning and evening",
-      "Hot-air balloon safari over the Mara at sunrise",
-      "Great Wildebeest Migration viewing (seasonal)",
-      "Maasai village cultural visit",
-      "Bush breakfast with panoramic savanna views",
-      "All-inclusive luxury tented camp accommodation"
-    ]
-  },
-  {
-    id: 6,
-    title: "Rome — Eternal City",
-    location: "Rome, Italy",
-    category: "Culture",
-    duration: "7 Days",
-    groupSize: "Max 12",
-    rating: 4.8,
-    reviews: 289,
-    price: 1399,
-    image: "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=600&q=80",
-    description: "Walk in the footsteps of emperors — the Colosseum, Vatican, Trevi Fountain, and extraordinary pasta await in the most historically rich city on Earth.",
-    fullDescription: "Seven days in the Eternal City is barely enough to scratch its glorious surface. Our expert archaeologist guides bring ancient Rome to life as you walk through the Colosseum's arena floor, explore the Roman Forum, and climb the Palatine Hill at golden hour. Spend a full day in Vatican City — the Sistine Chapel, St. Peter's Basilica, and the Vatican Museums. Evenings bring leisurely passeggiata through Trastevere, gelato at Campo de' Fiori, and unforgettable cacio e pepe in century-old trattorias.",
-    highlights: [
-      "Colosseum arena floor access (usually restricted)",
-      "Vatican Museums & Sistine Chapel early morning entry",
-      "Roman Forum and Palatine Hill guided walk",
-      "Evening food tour through Trastevere",
-      "Day trip to Pompeii and Vesuvius",
-      "Pasta-making class with a local nonna"
-    ]
-  }
-];
-
+{
+  id: 1,
+  title: "Bangkok - City of Angel",
+  location: "Bangkok, Thailand",
+  category: "Central",
+  duration: "7 Days",
+  groupSize: "Max 12",
+  rating: 4.9,
+  reviews: 312,
+  price: 699,
+  image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80",
+  description: "Lose yourself in the vibrant heartbeat of Thailand. From gilded temples shimmering in the sun to the intoxicating aromas of bustling street food markets, Bangkok is a captivating symphony for the senses.",
+  fullDescription: "Embark on an unforgettable journey through the 'City of Angels,' where ancient traditions gracefully collide with a modern, electric pulse. Drift along the Chao Phraya River on a traditional longtail boat, marvel at the breathtaking majesty of the Grand Palace, and find serenity within the sacred walls of Wat Pho. As twilight descends, watch the sprawling skyline ignite with color from an exclusive rooftop oasis, before diving into the endless culinary wonders of vibrant night markets. This carefully curated tour captures the very soul of Bangkok, offering an exquisite blend of spiritual tranquility and exhilarating urban energy.",
+  highlights: [
+    "Guided tour of the majestic Grand Palace and Wat Phra Kaew",
+    "Private longtail boat cruise along the Chao Phraya River",
+    "Traditional Thai massage experience at Wat Pho",
+    "Street food tasting tour in vibrant Chinatown (Yaowarat)",
+    "Sunset cocktails at a premium rooftop bar",
+    "All airport transfers included from BKK or DMK"
+  ]
+},
+{
+  id: 2,
+  title: "Chiang Mai - Inthanon city",
+  location: "Chiang Mai, Thailand",
+  category: "Northern",
+  duration: "5 Days",
+  groupSize: "Max 10",
+  rating: 4.8,
+  reviews: 245,
+  price: 649,
+  image: "https://images.unsplash.com/photo-1586521995568-39abaa0c2311?w=600&q=80",
+  description: "Awaken your spirit in the misty embrace of Doi Inthanon. Journey through ancient cloud forests, stand beside thundering waterfalls, and gaze across endless emerald valleys from the roof of Thailand.",
+  fullDescription: "Escape to the tranquil heights of Chiang Mai and discover the enchanting beauty of Doi Inthanon, Thailand's highest peak. This immersive expedition invites you to wander through ethereal cloud forests dripping with vibrant moss and wild orchids. Feel the cool mountain mist on your face at the majestic Wachirathan Waterfall, and find peace at the stunning Royal Twin Pagodas that soar above the sweeping valleys. Along the way, you'll connect with the rich heritage of the local hill tribes, warming your soul with freshly brewed, locally grown highland coffee. Let the serene majesty of this mountain sanctuary rejuvenate your heart and mind.",
+  highlights: [
+    "Stand at the highest point in Thailand at Doi Inthanon Summit",
+    "Wander the mystical, moss-draped Ang Ka Nature Trail",
+    "Marvel at the panoramic views from the Royal Twin Pagodas",
+    "Experience the thundering beauty of Wachirathan Waterfall",
+    "Visit a local hill tribe village and taste fresh highland coffee"
+  ]
+},
+{
+  id: 3,
+  title: "Phuket - The City of Blue sea",
+  location: "Phuket, Thailand",
+  category: "Western",
+  duration: "6 Days",
+  groupSize: "Max 10",
+  rating: 4.9,
+  reviews: 380,
+  price: 779,
+  image: "https://elephantjunglesanctuary.com/wp-content/uploads/2025/12/things-to-do-in-phuket.webp",
+  description: "Immerse yourself in the crystalline embrace of the Andaman Sea. Let the powdery white sands of Phuket become your sanctuary as you discover hidden lagoons, vibrant coral reefs, and spectacular coastal sunsets.",
+  fullDescription: "Surrender to the ultimate tropical paradise in Phuket, the radiant Pearl of the Andaman. This luxurious island escape invites you to unwind on pristine, sun-drenched shores kissed by mesmerizing azure waters. Sail on a private catamaran to hidden island archipelagos, snorkel through a kaleidoscope of marine life, and leave your footprints on secluded beaches. Beyond the water, wander through the romantic streets of Old Phuket Town, where vibrant Sino-Portuguese architecture frames bustling night markets and charming cafes. As twilight falls, savor world-class seafood while watching the sky ignite in brilliant hues over the tranquil ocean.",
+  highlights: [
+    "Private catamaran cruise to hidden island archipelagos",
+    "Snorkeling in the crystal-clear waters of the Andaman Sea",
+    "Guided cultural walk through historic Old Phuket Town",
+    "Sunset seafood dinner overlooking the breathtaking coastline",
+    "Free days to relax and rejuvenate on pristine white-sand beaches"
+  ]
+},
+{
+  id: 4,
+  title: "Narathiwat - The southernmost land of Siam",
+  location: "Narathiwat, Thailand",
+  category: "Southern",
+  duration: "5 Days",
+  groupSize: "Max 8",
+  rating: 4.8,
+  reviews: 156,
+  price: 529,
+  image: "https://api.tourismthailand.org/upload/live/destination/4-9031.png",
+  description: "Journey to the serene edge of the kingdom, where lush rainforests meet tranquil shores. Narathiwat is a hidden tapestry of harmonious cultures, golden beaches, and pristine wilderness waiting to be discovered.",
+  fullDescription: "Uncover the profound beauty of Narathiwat, the southernmost jewel of Siam. This off-the-beaten-path expedition takes you into a world where vibrant traditions seamlessly weave together. Wander through the ancient, mist-shrouded Budo-Su-ngai Padi National Park, home to rare wildlife and spectacular cascading waterfalls. Experience the deep tranquility of long, untouched coastlines like Narathat Beach, and immerse yourself in the rich cultural symphony of local villages where exquisite batik art is born. Let the warm, authentic hospitality of the deep south envelop you as you savor unique culinary delights that tell the captivating story of this enchanting borderland.",
+  highlights: [
+    "Explore the pristine wilderness of Budo-Su-ngai Padi National Park",
+    "Relax on the golden, pine-fringed sands of Narathat Beach",
+    "Marvel at the wooden architecture of the 300-year-old Wadi Al-Hussein Mosque",
+    "Participate in an authentic local Batik hand-painting workshop",
+    "Savor the rich, aromatic flavors of deep southern Thai-Malay cuisine"
+  ]
+}
+  ];
+  
 /* ── Helpers ───────────────────────────────────────────────── */
 function starsHTML(rating) {
   const full  = Math.floor(rating);
@@ -210,6 +163,9 @@ function openModal(tour) {
     <div class="from">From</div>
     <div class="amount">$${tour.price.toLocaleString()}</div>
     <div class="per">per person</div>`;
+
+  const bookBtn = overlay.querySelector("#modal-book-btn");
+  if (bookBtn) bookBtn.onclick = () => location.href = `booking.html?id=${tour.id}`;
 
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
