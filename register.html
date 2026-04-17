@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — TripTour</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand" onclick="location.href='index.html'" style="cursor:pointer">✈️ <span>Trip</span>Tour</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tours.html">Tours</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-auth">
+        <button class="btn-outline-nav" onclick="location.href='login.html'">Log In</button>
+        <button class="btn-solid-nav"   onclick="location.href='register.html'">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- Auth -->
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-logo">✈️</div>
+      <h2>Create Your Account</h2>
+      <p class="sub">Join thousands of travelers discovering the world</p>
+
+      <form onsubmit="handleRegister(event)" id="registerForm">
+        <div class="form-group">
+            <label for="r-fname">First Name</label>
+            <input type="text" id="r-fname" placeholder="Jane" required autofocus>
+          </div>
+          <div class="form-group">
+            <label for="r-lname">Last Name</label>
+            <input type="text" id="r-lname" placeholder="Smith">
+        </div>
+
+        <div class="form-group">
+          <label for="r-email">Email Address</label>
+          <input type="email" id="r-email" placeholder="jane@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="r-phone">Phone Number <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+          <input type="tel" id="r-phone" placeholder="+1 555 000 0000">
+        </div>
+
+        <div class="form-group">
+          <label for="r-country">Country</label>
+          <select id="r-country">
+            <option value="">Select your country…</option>
+            <option>Thailand</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+            <option>Australia</option>
+            <option>Germany</option>
+            <option>France</option>
+            <option>Japan</option>
+            <option>Singapore</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="r-password">Password</label>
+          <input type="password" id="r-password" placeholder="At least 8 characters" required minlength="8">
+        </div>
+
+        <div class="form-group">
+          <label for="r-confirm">Confirm Password</label>
+          <input type="password" id="r-confirm" placeholder="Repeat your password" required>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:.55rem; margin-bottom:.5rem;">
+          <input type="checkbox" id="r-terms" style="width:auto; accent-color:var(--primary); margin-top:.15rem;" required>
+          <label for="r-terms" style="font-size:.85rem; color:var(--muted); font-weight:400; margin:0; cursor:pointer; line-height:1.5">
+            I agree to the <a href="#" style="color:var(--primary)">Terms of Service</a> and <a href="#" style="color:var(--primary)">Privacy Policy</a>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-full">Create Account 🚀</button>
+      </form>
+
+      <div id="registerError" style="display:none; margin-top:.9rem; background:#fef2f2; border:1.5px solid #fecaca; border-radius:9px; padding:.75rem 1rem; color:#dc2626; font-size:.88rem; text-align:center;"></div>
+
+      <div id="registerSuccess" style="display:none; margin-top:.9rem; background:var(--sky); border-radius:9px; padding:.75rem 1rem; color:var(--primary-d); font-weight:600; font-size:.88rem; text-align:center;">
+        🎉 Account created! Welcome to TripTour — redirecting…
+      </div>
+
+      <div class="divider">or sign up with</div>
+
+      <div style="display:flex; gap:.7rem;">
+        <button onclick="alert('Google sign-up coming soon!')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:.5rem; padding:.65rem; border:1.5px solid var(--border); border-radius:9px; background:var(--white); cursor:pointer; font-size:.9rem; font-weight:600; color:var(--text); transition:background .15s;" onmouseover="this.style.background='var(--sky)'" onmouseout="this.style.background='var(--white)'">
+          <span>🌐</span> Google
+        </button>
+        <button onclick="alert('Facebook sign-up coming soon!')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:.5rem; padding:.65rem; border:1.5px solid var(--border); border-radius:9px; background:var(--white); cursor:pointer; font-size:.9rem; font-weight:600; color:var(--text); transition:background .15s;" onmouseover="this.style.background='var(--sky)'" onmouseout="this.style.background='var(--white)'">
+          <span>📘</span> Facebook
+        </button>
+      </div>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <strong>TripTour</strong> &copy; 2026 — Crafted with ❤️ for adventurous souls
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function handleRegister(e) {
+      e.preventDefault();
+      const pass    = document.getElementById("r-password").value;
+      const confirm = document.getElementById("r-confirm").value;
+      const errEl   = document.getElementById("registerError");
+      const sucEl   = document.getElementById("registerSuccess");
+
+      errEl.style.display = "none";
+      sucEl.style.display = "none";
+
+      if (pass !== confirm) {
+        errEl.textContent = "❌ Passwords do not match. Please check and try again.";
+        errEl.style.display = "block";
+        return;
+      }
+      if (pass.length < 8) {
+        errEl.textContent = "❌ Password must be at least 8 characters.";
+        errEl.style.display = "block";
+        return;
+      }
+
+      document.getElementById("registerForm").style.display = "none";
+      sucEl.style.display = "block";
+      setTimeout(() => location.href = "index.html", 2000);
+    }
+  </script>
+</body>
+</html>

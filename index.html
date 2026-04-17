@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TripTour — Trip for everyone Tour</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-brand">✈️ <span>Trip</span>Tour</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="tours.html">Tours</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-auth">
+      <button class="btn-outline-nav" onclick="location.href='login.html'">Log In</button>
+      <button class="btn-solid-nav"   onclick="location.href='register.html'">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════ -->
+  <section class="hero-full">
+    <div class="hero-inner">
+      <div class="hero-badge">🌍 Trusted by 12,000+ travelers worldwide</div>
+
+      <h1>Discover the World<br>With <em>Expert Guides</em></h1>
+
+      <p>
+        Handcrafted small-group tours to the most breathtaking destinations
+        on Earth. Every detail planned, every moment unforgettable.
+      </p>
+
+      <div class="hero-cta">
+        <button class="btn-hero-primary" onclick="document.getElementById('toursSection').scrollIntoView({behavior:'smooth'})">
+          Explore Tours
+        </button>
+        <button class="btn-hero-outline" onclick="location.href='contact.html'">
+          Plan My Trip
+        </button>
+      </div>
+
+      <div class="hero-search-bar">
+        <input type="text" id="heroSearch" placeholder="🔍  Where do you want to go?">
+        <button onclick="handleHeroSearch()">Search</button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">50+</div><div class="lbl">Destinations</div></div>
+        <div class="hero-stat"><div class="num">12K+</div><div class="lbl">Happy Travelers</div></div>
+        <div class="hero-stat"><div class="num">4.9★</div><div class="lbl">Average Rating</div></div>
+        <div class="hero-stat"><div class="num">8 Yrs</div><div class="lbl">Experience</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       OUR SERVICES — SLIDER
+  ════════════════════════════════════════════════════════ -->
+  <section class="services-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Our <em>Services</em></h2>
+        <span style="font-size:.88rem; color:var(--muted)">Swipe or use arrows to explore</span>
+      </div>
+
+      <div class="slider-wrapper">
+        <div class="slider-track-outer">
+          <div class="slider-track" id="sliderTrack">
+
+            <div class="service-card">
+              <div class="service-icon">🧭</div>
+              <h3>Expert-Led Guided Tours</h3>
+              <p>Travel with passionate local guides who bring history, culture, and hidden stories to life. Every tour is led by a certified specialist.</p>
+              <button class="learn-more" onclick="location.href='tours.html'">Explore tours →</button>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🗺️</div>
+              <h3>Custom Itinerary Planning</h3>
+              <p>Tell us your dream, and we'll craft a bespoke itinerary tailored to your pace, budget, and interests — fully flexible and fully personal.</p>
+              <button class="learn-more" onclick="location.href='contact.html'">Request yours →</button>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🏨</div>
+              <h3>Curated Accommodation</h3>
+              <p>From boutique hotels in ancient city centres to luxury tented camps on the savanna — every stay is hand-picked for comfort and character.</p>
+              <button class="learn-more" onclick="location.href='tours.html'">See packages →</button>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">✈️</div>
+              <h3>Flight & Transfer Coordination</h3>
+              <p>We handle all airport pickups, inter-city transfers, and domestic flights so you arrive relaxed and ready to explore from the moment you land.</p>
+              <button class="learn-more" onclick="location.href='contact.html'">Learn more →</button>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🛡️</div>
+              <h3>24/7 Travel Support</h3>
+              <p>Our dedicated support team is available around the clock throughout your trip. Got a question at 2 AM in Tokyo? We've got you covered.</p>
+              <button class="learn-more" onclick="location.href='contact.html'">Contact us →</button>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">📸</div>
+              <h3>Photography Experience Tours</h3>
+              <p>Capture stunning moments with our photography-focused tour packages. Professional photographers guide you to the perfect shot at the perfect time.</p>
+              <button class="learn-more" onclick="location.href='tours.html'">View tours →</button>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🍽️</div>
+              <h3>Food & Culinary Tours</h3>
+              <p>Taste your way through a destination — market tours, cooking classes, Michelin-starred dinners, and street food adventures with local experts.</p>
+              <button class="learn-more" onclick="location.href='tours.html'">Taste the world →</button>
+            </div>
+
+          </div><!-- /slider-track -->
+        </div><!-- /slider-track-outer -->
+
+        <div class="slider-controls">
+          <button class="slider-btn" id="sliderPrev" aria-label="Previous" onclick="slideMove(-1)">&#8592;</button>
+          <div class="slider-dots" id="sliderDots"></div>
+          <button class="slider-btn" id="sliderNext" aria-label="Next" onclick="slideMove(1)">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ALL TOURS
+  ════════════════════════════════════════════════════════ -->
+  <section class="tours-section" id="toursSection">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>All <em>Tours</em></h2>
+        <span style="font-size:.88rem; color:var(--muted)" id="tourCount"></span>
+      </div>
+
+      <!-- Search -->
+      <div style="margin-bottom:1.4rem">
+        <input
+          type="text"
+          id="tourSearch"
+          placeholder="🔍  Search by destination, tour name, or category…"
+          style="width:100%; padding:.82rem 1.1rem; border:1.5px solid var(--border); border-radius:10px; font-size:.97rem; background:var(--white); color:var(--text); outline:none; transition:border-color .18s, box-shadow .18s;"
+          onfocus="this.style.borderColor='var(--primary-l)'; this.style.boxShadow='0 0 0 3px rgba(56,189,248,.2)'"
+          onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none'"
+        >
+      </div>
+
+      <!-- Category chips -->
+      <div class="category-bar" id="categoryBar">
+        <button class="chip active" data-cat="All">All</button>
+        <button class="chip" data-cat="Culture">🏛 Culture</button>
+        <button class="chip" data-cat="Adventure">🧗 Adventure</button>
+        <button class="chip" data-cat="Beach">🏖 Beach</button>
+        <button class="chip" data-cat="City">🌆 City</button>
+        <button class="chip" data-cat="Wildlife">🦁 Wildlife</button>
+      </div>
+
+      <!-- Tours list -->
+      <div class="tours-list" id="toursList"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TOUR DETAIL MODAL
+  ════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="tourModal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <img class="modal-img" id="modal-img" src="" alt="">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <h2 class="modal-title" id="modal-title"></h2>
+            <p class="modal-location" id="modal-location"></p>
+          </div>
+          <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-tags" id="modal-tags"></div>
+        <p class="modal-body" id="modal-body"></p>
+        <div class="modal-info-grid" id="modal-info"></div>
+        <div class="modal-highlights">
+          <h4>Tour Highlights</h4>
+          <ul id="modal-highlights"></ul>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-price" id="modal-price"></div>
+          <button class="btn-book" onclick="alert('Booking flow coming soon! 🎉')">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════ -->
+  <footer>
+    <strong>TripTour</strong> &copy; 2026 — Crafted with ❤️ for adventurous souls
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ── Tours ─────────────────────────────────────────────── */
+    renderTours("toursList");
+    updateTourCount("All");
+    initChips("categoryBar", "toursList");
+    initSearch("tourSearch", "toursList");
+
+    // Patch initChips to also update count
+    document.getElementById("categoryBar").addEventListener("click", e => {
+      const chip = e.target.closest(".chip");
+      if (chip) updateTourCount(chip.dataset.cat);
+    });
+    document.getElementById("tourSearch").addEventListener("input", function() {
+      const q = this.value.trim().toLowerCase();
+      const count = q
+        ? TOURS.filter(t =>
+            t.title.toLowerCase().includes(q) ||
+            t.location.toLowerCase().includes(q) ||
+            t.category.toLowerCase().includes(q)).length
+        : TOURS.length;
+      document.getElementById("tourCount").textContent = count + " tour" + (count !== 1 ? "s" : "") + " found";
+    });
+
+    function updateTourCount(cat) {
+      const count = cat === "All" ? TOURS.length : TOURS.filter(t => t.category === cat).length;
+      document.getElementById("tourCount").textContent = count + " tour" + (count !== 1 ? "s" : "") + " found";
+    }
+
+    /* ── Hero search ───────────────────────────────────────── */
+    function handleHeroSearch() {
+      const q = document.getElementById("heroSearch").value.trim();
+      if (!q) {
+        document.getElementById("toursSection").scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+      document.getElementById("tourSearch").value = q;
+      document.getElementById("toursSection").scrollIntoView({ behavior: "smooth" });
+      // trigger the search filter
+      document.getElementById("tourSearch").dispatchEvent(new Event("input"));
+    }
+    document.getElementById("heroSearch").addEventListener("keydown", e => {
+      if (e.key === "Enter") handleHeroSearch();
+    });
+
+    /* ── Services Slider ───────────────────────────────────── */
+    (function initSlider() {
+      const track  = document.getElementById("sliderTrack");
+      const dotsEl = document.getElementById("sliderDots");
+      const prevBtn = document.getElementById("sliderPrev");
+      const nextBtn = document.getElementById("sliderNext");
+
+      const cards = track.querySelectorAll(".service-card");
+      let current = 0;
+
+      // Determine how many cards are visible based on viewport
+      function visibleCount() {
+        if (window.innerWidth <= 700) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
+      }
+
+      function totalSlides() {
+        return Math.ceil(cards.length / visibleCount());
+      }
+
+      // Build dots
+      function buildDots() {
+        dotsEl.innerHTML = "";
+        for (let i = 0; i < totalSlides(); i++) {
+          const dot = document.createElement("button");
+          dot.className = "dot" + (i === current ? " active" : "");
+          dot.setAttribute("aria-label", "Slide " + (i + 1));
+          dot.addEventListener("click", () => goTo(i));
+          dotsEl.appendChild(dot);
+        }
+      }
+
+      function goTo(index) {
+        const total = totalSlides();
+        current = Math.max(0, Math.min(index, total - 1));
+
+        // Calculate card width + gap
+        const card = cards[0];
+        const style = getComputedStyle(track);
+        const gap = parseFloat(style.gap) || 24;
+        const cardW = card.offsetWidth + gap;
+
+        track.style.transform = `translateX(-${current * visibleCount() * cardW}px)`;
+
+        // Update dots
+        dotsEl.querySelectorAll(".dot").forEach((d, i) => d.classList.toggle("active", i === current));
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current >= total - 1;
+      }
+
+      function slideMove(dir) { goTo(current + dir); }
+      window.slideMove = slideMove;
+
+      buildDots();
+      goTo(0);
+
+      // Rebuild on resize
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { buildDots(); goTo(0); }, 150);
+      });
+
+      // Touch / swipe support
+      let touchStartX = 0;
+      track.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener("touchend",   e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) slideMove(diff > 0 ? 1 : -1);
+      });
+    })();
+  </script>
+    </body>
+</html>

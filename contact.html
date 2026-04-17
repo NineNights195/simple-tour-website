@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — TripTour</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand" onclick="location.href='index.html'" style="cursor:pointer">✈️ <span>Trip</span>Tour</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tours.html">Tours</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-auth">
+      <button class="btn-outline-nav" onclick="location.href='login.html'">Log In</button>
+      <button class="btn-solid-nav"   onclick="location.href='register.html'">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <h1>Get in Touch</h1>
+    <p>We'd love to help you plan your next adventure</p>
+  </section>
+
+  <!-- Content -->
+  <main class="section">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <aside>
+        <h3>Contact Information</h3><br>
+        <p>Have questions about a tour, want a custom itinerary, or need support? Our team is here for you — reach out anytime.</p>
+        <br>
+
+        <ul class="info-list">
+          <li>
+            <span class="icon">📍</span>
+            <span><strong>Headquarters</strong><br>123 Explorer Avenue, Bangkok 10110, Thailand</span>
+          </li>
+          <li>
+            <span class="icon">📞</span>
+            <span><strong>Phone</strong><br>+66 2 123 4567</span>
+          </li>
+          <li>
+            <span class="icon">📧</span>
+            <span><strong>Email</strong><br>hello@triptour.com</span>
+          </li>
+          <li>
+            <span class="icon">🕐</span>
+            <span><strong>Office Hours</strong><br>Mon – Fri: 9:00 AM – 6:00 PM (ICT)<br>Sat: 10:00 AM – 3:00 PM</span>
+          </li>
+          <li>
+            <span class="icon">💬</span>
+            <span><strong>Live Chat</strong><br>Available 24/7 on our website</span>
+          </li>
+        </ul>
+
+        <div class="map-placeholder">
+          <span style="font-size:2rem">🗺️</span>
+          <span>Map — Bangkok, Thailand</span>
+          <small style="color:var(--muted);font-size:.8rem">123 Explorer Avenue, 10110</small>
+        </div>
+      </aside>
+
+      <!-- Right: Form -->
+      <div class="contact-card">
+        <h3>Send Us a Message</h3>
+        <form onsubmit="handleContactSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-fname">First Name</label>
+              <input type="text" id="c-fname" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label for="c-lname">Last Name</label>
+              <input type="text" id="c-lname" placeholder="Doe" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="c-email">Email Address</label>
+            <input type="email" id="c-email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="c-subject">Subject</label>
+            <select id="c-subject">
+              <option value="">Select a topic…</option>
+              <option>Tour Enquiry</option>
+              <option>Custom Itinerary Request</option>
+              <option>Booking Support</option>
+              <option>Payment Issue</option>
+              <option>General Question</option>
+              <option>Partnership</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" placeholder="Tell us about your dream trip or how we can help…" required></textarea>
+          </div>
+          <button type="submit" class="btn-full">Send Message ✈️</button>
+        </form>
+        <div id="contactSuccess" style="display:none; margin-top:1.2rem; background:var(--sky); border-radius:10px; padding:1rem; text-align:center; color:var(--primary-d); font-weight:600;">
+          ✅ Message sent! We'll get back to you within 24 hours.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <strong>TripTour</strong> &copy; 2026 — Crafted with ❤️ for adventurous souls
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      e.target.style.display = "none";
+      document.getElementById("contactSuccess").style.display = "block";
+    }
+  </script>
+</body>
+</html>
